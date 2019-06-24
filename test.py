@@ -21,3 +21,6 @@ class TestMd5sumChecker(unittest.TestCase):
             "java -jar cromwell-42.jar run checker-workflow-wrapping-workflow.wdl -i md5sum-fail-wdl.json")
         self.assertEqual(process.returncode, 1)
 
+
+if __name__ == '__main__':
+    unittest.main()
