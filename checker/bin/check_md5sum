@@ -6,39 +6,41 @@ import json
 import sys
 import os
 
+
 def main():
-  parser = argparse.ArgumentParser(description='Checks to see if a given file contains a certain string and then returns a JSON.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--input-file', type=str, help='file input')
-  parser.add_argument('--md5', type=str, help='expected md5')
-  args = parser.parse_args()
+    parser = argparse.ArgumentParser(description='Checks to see if a given file contains a certain string and then returns a JSON.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('--input-file', type=str, help='file input')
+    parser.add_argument('--md5', type=str, help='expected md5')
+    args = parser.parse_args()
 
-  result = check_file(args.input_file, args.md5)
+    result_code = check_file(args.input_file, args.md5)
 
-  results_file  = open("results.json", "w")
-  if (result == 0):
-    results_file.write('{ "overall" : true, "steps" : { "md5sum_check" : true } }')
-  else:
-    results_file.write('{ "overall" : false, "steps" : { "md5sum_check" : false } }')
-  results_file.close()
+    results_file = open("results.json", "w")
+    if result_code == 0:
+        results_file.write('{ "overall" : true, "steps" : { "md5sum_check" : true } }')
+    else:
+        results_file.write('{ "overall" : false, "steps" : { "md5sum_check" : false } }')
+    results_file.close()
 
-  log_file  = open("log.txt", "w")
-  log_file.write("")
-  log_file.close()
+    log_file = open("log.txt", "w")
+    log_file.write("")
+    log_file.close()
 
-  # correct way to do this?
-  return(result)
+    sys.exit(result_code)
+
 
 def check_file(input_file, md5):
-  file = open(input_file, "r")
-  contents = file.read()
-  contents = contents.rstrip()
-  print ("FILE CONTENTS: "+contents)
-  if (contents == md5):
-    print("Contents match")
-    return(0)
-  else:
-    print("Contents DO NOT match")
-    return(1)
+    file = open(input_file, "r")
+    contents = file.read()
+    contents = contents.rstrip()
+    print("FILE CONTENTS: "+contents)
+    if contents == md5:
+        print("Contents match")
+        return 0
+    else:
+        print("Contents DO NOT match")
+        return 1
+
 
 if __name__ == "__main__":
     main()

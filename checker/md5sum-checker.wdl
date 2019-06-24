@@ -7,6 +7,6 @@ task checkerTask {
   }
 
   runtime {
-    docker: "quay.io/agduncan94/checker-md5sum"
+    docker: "quay.io/dockstore-testing/md5sum-checker"
   }
 }
