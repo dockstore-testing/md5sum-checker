@@ -6,7 +6,7 @@ services:
 language: python
 
 python:
-  - "3.7"
+  - "3.6"
 
 before_install:
   - pip install --user setuptools==28.8.0
