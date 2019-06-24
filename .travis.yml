@@ -3,11 +3,16 @@ sudo: required
 services:
   - docker
 
+language: python
+
+python:
+  - "3.7"
+
 before_install:
-  - pip2.7 install --user setuptools==28.8.0
+  - pip install --user setuptools==28.8.0
 
 install:
-  - pip2.7 install --user cwl-runner cwltool==1.0.20161114152756 schema-salad==1.18.20161005190847 avro==1.8.1
+  - pip install --user cwl-runner cwltool==1.0.20161114152756 schema-salad==1.18.20161005190847 avro==1.8.1
 
 script:
   - python -m unittest discover -s tests
