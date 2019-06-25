@@ -13,7 +13,7 @@ before_install:
   - wget -O $TRAVIS_BUILD_DIR/cromwell-42.jar https://github.com/broadinstitute/cromwell/releases/download/42/cromwell-42.jar;
 
 install:
-  - pip install cwltool==1.0.20160325210917
+  - pip install cwl-runner cwltool==1.0.20160325210917
 
 script:
   - python -m unittest discover -s .
