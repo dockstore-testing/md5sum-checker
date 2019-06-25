@@ -1,0 +1,4 @@
+{
+  "checkerWorkflow.inputFile": "md5sum.input",
+  "checkerWorkflow.expectedMd5sum": "not a real md5sum"
+}

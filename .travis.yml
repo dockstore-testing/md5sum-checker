@@ -6,7 +6,7 @@ services:
 language: python
 
 python:
-  - "3.6"
+  - "2.7"
 
 before_install:
   # Download Cromwell
@@ -16,4 +16,4 @@ install:
   - pip install cwl-runner cwltool==1.0.20161114152756 schema-salad==1.18.20161005190847 avro==1.8.1
 
 script:
-  - python -m unittest discover -s tests
+  - python -m unittest discover -s md5sum-checker
