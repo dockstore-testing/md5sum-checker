@@ -9,7 +9,8 @@ python:
   - "3.6"
 
 before_install:
-  - pip install setuptools==28.8.0
+  # Download Cromwell
+  - wget -O ~/cromwell-42.jar https://github.com/broadinstitute/cromwell/releases/download/42/cromwell-42.jar;
 
 install:
   - pip install cwl-runner cwltool==1.0.20161114152756 schema-salad==1.18.20161005190847 avro==1.8.1
