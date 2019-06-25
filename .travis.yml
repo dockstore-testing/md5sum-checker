@@ -11,9 +11,10 @@ python:
 before_install:
   # Download Cromwell
   - wget -O $TRAVIS_BUILD_DIR/cromwell-42.jar https://github.com/broadinstitute/cromwell/releases/download/42/cromwell-42.jar;
+  - curl -o requirements.txt "https://dockstore.org/api/metadata/runner_dependencies?client_version=1.6.0&python_version=3"
 
 install:
-  - pip install cwl-runner cwltool==1.0.20190621234233 schema-salad==4.5.20190621200723 avro==1.9.0
+  - pip install -r requirements.txt
 
 script:
   - python -m unittest discover -s .
