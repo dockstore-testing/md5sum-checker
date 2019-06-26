@@ -7,7 +7,7 @@ cwlVersion: v1.0
 
 requirements:
 - class: DockerRequirement
-  dockerPull: quay.io/dockstore-testing/md5sum-checker:feature_emlys_DOC-654
+  dockerPull: quay.io/dockstore-testing/md5sum-checker:1.0.0
 - class: InlineJavascriptRequirement
 
 hints:

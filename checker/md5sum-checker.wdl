@@ -7,6 +7,6 @@ task checkerTask {
   }
 
   runtime {
-    docker: "quay.io/dockstore-testing/md5sum-checker:feature_emlys_DOC-654"
+    docker: "quay.io/dockstore-testing/md5sum-checker:1.0.0"
   }
 }
