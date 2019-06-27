@@ -18,6 +18,8 @@ install:
 
 script:
   - docker build -t test-image -f checker/Dockerfile checker
-  - sed 's/dockerPull:.*/dockerPull: test-image:latest/g' checker/md5sum-checker.cwl
-  - sed 's/docker:.*/docker: "test-image:latest"/g' checker/md5sum-checker.wdl
+  - >-
+    sed 's/dockerPull:.*/dockerPull: test-image:latest/g' checker/md5sum-checker.cwl
+  - >-
+    sed 's/docker:.*/docker: "test-image:latest"/g' checker/md5sum-checker.wdl
   - python -m unittest discover -s .
